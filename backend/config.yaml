@@ -1,0 +1,117 @@
+# Application Configuration
+server:
+  host: "127.0.0.1"
+  port: 8000
+  reload: true
+  cors_origins:
+    - "http://localhost:5173"
+    - "http://127.0.0.1:5173"
+
+database:
+  url: "sqlite:///./tracker.db"
+  echo_sql: false
+
+# Business Logic & Enums
+enums:
+  application_statuses:
+    - key: "wishlist"
+      label: "Wishlist"
+      color: "#94a3b8"
+      is_terminal: false
+      order: 1
+    - key: "applied"
+      label: "Applied"
+      color: "#38bdf8"
+      is_terminal: false
+      order: 2
+    - key: "screening"
+      label: "Screening"
+      color: "#818cf8"
+      is_terminal: false
+      order: 3
+    - key: "technical"
+      label: "Technical Assessment"
+      color: "#c084fc"
+      is_terminal: false
+      order: 4
+    - key: "final_round"
+      label: "Final Round"
+      color: "#f472b6"
+      is_terminal: false
+      order: 5
+    - key: "offer"
+      label: "Offer Received"
+      color: "#34d399"
+      is_terminal: true
+      order: 6
+    - key: "rejected"
+      label: "Rejected"
+      color: "#f87171"
+      is_terminal: true
+      order: 7
+    - key: "ghosted"
+      label: "Ghosted"
+      color: "#64748b"
+      is_terminal: true
+      order: 8
+    - key: "withdrawn"
+      label: "Withdrawn"
+      color: "#fbbf24"
+      is_terminal: true
+      order: 9
+
+  work_modes:
+    - key: "remote"
+      label: "Remote"
+    - key: "hybrid"
+      label: "Hybrid"
+    - key: "onsite"
+      label: "On-site"
+
+  interview_round_types:
+    - key: "recruiter_screen"
+      label: "Recruiter Screen"
+    - key: "technical_coding"
+      label: "Technical Coding"
+    - key: "system_design"
+      label: "System Design"
+    - key: "take_home_project"
+      label: "Take-Home Project"
+    - key: "behavioral"
+      label: "Behavioral / Values"
+    - key: "executive_final"
+      label: "Executive / Leadership Final"
+    - key: "other"
+      label: "Other"
+
+  interview_outcomes:
+    - key: "pending"
+      label: "Pending"
+    - key: "passed"
+      label: "Passed"
+    - key: "failed"
+      label: "Not Moved Forward"
+    - key: "cancelled"
+      label: "Cancelled"
+
+  timeline_event_types:
+    - key: "created"
+      label: "Application Created"
+    - key: "status_change"
+      label: "Status Transition"
+    - key: "interview_scheduled"
+      label: "Interview Scheduled"
+    - key: "interview_completed"
+      label: "Interview Completed"
+    - key: "note_added"
+      label: "Note Logged"
+
+# Analytics Rules
+analytics:
+  ghosting_threshold_days: 14
+  funnel_stages:
+    - "applied"
+    - "screening"
+    - "technical"
+    - "final_round"
+    - "offer"
